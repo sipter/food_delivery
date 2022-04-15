@@ -1,121 +1,128 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-html {
-  font-size: 62.5%;
-}
 
-.header {
-  .imgNav {
-    width: 100%;
-    height: 35rem;
-    object-fit: cover;
-    position: relative;
-  }
+// * {
+//   margin: 0;
+//   padding: 0;
+//   box-sizing: border-box;
+// }
 
-  h1 {
-    position: absolute;
-    //top: 30%;
-    z-index: 1;
-    font-size: 4.5rem;
-  }
+// html {
+//   font-size: 62.5%;
+// }
 
-  .nav-bar {
-    ul {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      font-size: 2rem;
-      width: 50%;
-      margin: 0 auto;
-      background-color: #97d4f1;
-      height: 5.5rem;
+// .header {
+//   .imgNav {
+//     width: 100%;
+//     height: 35rem;
+//     object-fit: cover;
+//     position: absolute;
+//   }
 
-      li {
-        list-style-type: none;
-        text-decoration: none;
-        margin-top: 1.5%;
-      }
+//   .basket:hover {
+//     cursor: pointer;
+//   }
 
-      li:hover {
-        color: #edbd2d;
-      }
-    }
-  }
-}
+//   .basket {
+//     margin-right: 10px;
+//   }
+//   .basketBox {
+//     display: none;
+//   }
 
-.salads, .main-dish, .dessert, .menu {
-  width: 50%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+//   .nav-bar {
+//     ul {
+//       display: flex;
+//       flex-direction: row;
+//       justify-content: space-around;
+//       font-size: 2rem;
+//       width: 50%;
+//       margin: 0 auto;
+//       background-color: #97d4f1;
+//       height: 5.5rem;
 
-  div {
-    border: solid #2373a3;
-    width: 100%;
-    height: 20%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 8px auto;
-    padding: 10px;
-    h2 {
-      font-size: 2.5rem;
-    }
+//       li {
+//         list-style-type: none;
+//         text-decoration: none;
+//         margin-top: 1.5%;
+//       }
 
-    p {
-      font-size: 1.8rem;
-    }
+//       li:hover {
+//         color: #edbd2d;
+//       }
+//     }
+//   }
+// }
 
-    button {
-      height: 30px;
-      width: 100px;
-      font-size: 1.7rem;
-      background: transparent;
-      border: 1px solid #2373a3;
+// .salads,
+// .main-dish,
+// .dessert,
+// .menu {
+//   width: 50%;
+//   margin: 0 auto;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
 
-      
-    }
-    button:hover {
-        border: 2px solid #2373a3;
-        background-color: #2373a3;
-        color: white;
-      }
+//   div {
+//     border: solid #2373a3;
+//     width: 100%;
+//     height: 20%;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: flex-start;
+//     margin: 8px auto;
+//     padding: 10px;
+//     h2 {
+//       font-size: 2.5rem;
+//     }
 
-    h2,
-    p,
-    button {
-      margin-top: 6px;
-    }
-  }
+//     p {
+//       font-size: 1.8rem;
+//     }
 
-  .salad1,
-  .salad2,
-  .salad3,
-  .salad4,
-  .salad5,
-  .dish1,
-  .dish2,
-  .dish3,
-  .dish4,
-  .dish5,
-  .dessert1,
-  .dessert2,
-  .dessert3,
-  .menu1,
-  .menu2,
-  .menu3{
-    border-width: 2px 2px 2px 2px;
-    border-radius: 40% 2% 12% 1%/4% 45% 6% 95%;
-    //https://9elements.com/blog/css-border-radius/
-    //transform: rotate(2deg);
-  }
-}
+//     button {
+//       height: 30px;
+//       width: 100px;
+//       font-size: 1.7rem;
+//       background: transparent;
+//       border: 1px solid #2373a3;
+//     }
+//     button:hover {
+//       border: 2px solid #2373a3;
+//       background-color: #2373a3;
+//       color: white;
+//     }
+
+//     h2,
+//     p,
+//     button {
+//       margin-top: 6px;
+//     }
+//   }
+
+//   .salad1,
+//   .salad2,
+//   .salad3,
+//   .salad4,
+//   .salad5,
+//   .dish1,
+//   .dish2,
+//   .dish3,
+//   .dish4,
+//   .dish5,
+//   .dessert1,
+//   .dessert2,
+//   .dessert3,
+//   .menu1,
+//   .menu2,
+//   .menu3 {
+//     border-width: 2px 2px 2px 2px;
+//     border-radius: 40% 2% 12% 1%/4% 45% 6% 95%;
+//     //https://9elements.com/blog/css-border-radius/
+//     //transform: rotate(2deg);
+//   }
+// }
 
 // .App {
 //   text-align: center;
