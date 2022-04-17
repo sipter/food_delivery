@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import * as React from "react";
-
+import AddIcon from '@mui/icons-material/Add';
 export const DishCard = () => {
   return (
     <>
@@ -19,7 +19,7 @@ export const DishCard = () => {
             Pork meat skewer served with potato fries, tzatziki, onions and pita bread.
           </Typography>
           <CardActions>
-            <Button variant="contained">15$</Button>
+            <Button variant="outlined" endIcon={<AddIcon />}>15$</Button>
           </CardActions>
         </CardContent>
         <CardMedia
@@ -37,7 +37,7 @@ export const DishCard = () => {
             Pasta with bolognese sauce ,cheese and bechamel on top baked in the oven.
           </Typography>
           <CardActions>
-            <Button variant="contained">15$</Button>
+            <Button variant="outlined" endIcon={<AddIcon />}>15$</Button>
           </CardActions>
         </CardContent>
         <CardMedia
@@ -55,7 +55,7 @@ export const DishCard = () => {
             Tsipoura (Sea bream) baked in the oven, served with roasted veggies: potatoes, tomatoes, onions, bell peppers
           </Typography>
           <CardActions>
-            <Button variant="contained">15$</Button>
+            <Button variant="outlined" endIcon={<AddIcon />}>15$</Button>
           </CardActions>
         </CardContent>
         <CardMedia
@@ -73,7 +73,7 @@ export const DishCard = () => {
             Spinach and rice with herbs: dill, parsley, oregano served with fresh lemon juice.
           </Typography>
           <CardActions>
-            <Button variant="contained">15$</Button>
+            <Button variant="outlined" endIcon={<AddIcon />}>15$</Button>
           </CardActions>
         </CardContent>
         <CardMedia

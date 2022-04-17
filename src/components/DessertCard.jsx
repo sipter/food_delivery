@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import * as React from "react";
-
+import AddIcon from '@mui/icons-material/Add';
 export const DessertCard = () => {
   return (
     <>
@@ -30,7 +30,7 @@ export const DessertCard = () => {
             roasted seseam seeds on top.
           </Typography>
           <CardActions>
-            <Button variant="contained">15$</Button>
+            <Button variant="outlined" endIcon={<AddIcon />}>15$</Button>
           </CardActions>
         </CardContent>
         <CardMedia
@@ -59,7 +59,7 @@ export const DessertCard = () => {
             with or without ice cream.
           </Typography>
           <CardActions>
-            <Button variant="contained">15$</Button>
+            <Button variant="outlined" endIcon={<AddIcon />}>15$</Button>
           </CardActions>
         </CardContent>
         <CardMedia
@@ -88,7 +88,7 @@ export const DessertCard = () => {
             and served with or without ice cream.
           </Typography>
           <CardActions>
-            <Button variant="contained">15$</Button>
+            <Button variant="outlined" endIcon={<AddIcon />}>15$</Button>
           </CardActions>
         </CardContent>
         <CardMedia
