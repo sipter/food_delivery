@@ -14,7 +14,7 @@ import ShoppingCart from "./ShoppingCart";
 export default function NanBar({ toggleCart }) {
   let navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const pages = ["starter", "salads", "main-dish", "dessert", "drinks"];
+  const pages = ["home","starter", "salads", "main-dish", "dessert", "drinks"];
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };

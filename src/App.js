@@ -3,10 +3,10 @@ import "../src/style/App.css";
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Header } from "./components/Header";
-import { Salads } from "./view/Salads.js";
 import { MainDish } from "./view/MainDish";
 import { Dessert } from "./view/Dessert";
 import { Starter } from "./view/Starter";
+import { Salads } from "./view/Salads";
 import { Drinks } from "./view/Drinks";
 import { Container, CssBaseline } from "@mui/material";
 import NavBar from "../src/components/NavBar";
@@ -16,7 +16,7 @@ import { v4 as uuid } from "uuid";
 function App() {
   const [isCartOpen, setIsCartOpen] = React.useState(false);
   const [products, setProducts] = React.useState([]);
-
+console.log(products)
   const toggleCart = () => setIsCartOpen(!isCartOpen);
   const addItemToCart = (item) => setProducts([...products, item]);
 
@@ -47,10 +47,10 @@ function App() {
               exact
               element={<Starter addItemToCart={addItemToCart} />}
             />
-            <Route path="/salads" exact element={<Salads />} />
-            <Route path="/main-dish" exact element={<MainDish />} />
-            <Route path="/dessert" exact element={<Dessert />} />
-            <Route path="/drinks" exact element={<Drinks />} />
+            <Route path="/salads" exact element={<Salads addItemToCart={addItemToCart}/>} />
+            <Route path="/main-dish" exact element={<MainDish addItemToCart={addItemToCart}/>} />
+            <Route path="/dessert" exact element={<Dessert addItemToCart={addItemToCart}/>} />
+            <Route path="/drinks" exact element={<Drinks addItemToCart={addItemToCart}/>} />
           </Routes>
         </Container>
         {/* </div> */}

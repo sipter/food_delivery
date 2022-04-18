@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import * as React from "react";
 import AddIcon from "@mui/icons-material/Add";
-export const SaladsCard = () => {
+export const SaladsCard = ({ addItemToCart, salad }) => {
   return (
     <>
       <Card
@@ -22,114 +22,26 @@ export const SaladsCard = () => {
       >
         <CardContent>
           <Typography component="h2" sx={{ fontWeight: "bold" }}>
-            Greek traditional salad
+            {salad.name}
           </Typography>
           <Typography component="p">
             Ingredients: <br></br>
-            Tomatoes, cucumber, onions, green bell pepper, olives, feta cheese.
+            {salad.ingredients}
           </Typography>
           <CardActions>
-            <Button variant="outlined" endIcon={<AddIcon />}>
-              15$
+            <Button
+              variant="outlined"
+              endIcon={<AddIcon />}
+              onClick={() => addItemToCart(salad)}
+            >
+              {salad.price}
             </Button>
           </CardActions>
         </CardContent>
         <CardMedia
           sx={{ width: 151, height: "auto" }}
           component="img"
-          image="/assets/GreekSalad.jpg"
-          alt="food img"
-        />
-      </Card>
-      <Card
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          marginBottom: 2,
-          height: "auto",
-        }}
-      >
-        <CardContent>
-          <Typography component="h2" sx={{ fontWeight: "bold" }}>
-            Patzaria(Beetroot)
-          </Typography>
-          <Typography component="p">
-            Ingredients: <br></br>
-            Beetroots, with garlic and walnuts
-          </Typography>
-          <CardActions>
-            <Button variant="outlined" endIcon={<AddIcon />}>
-              15$
-            </Button>
-          </CardActions>
-        </CardContent>
-        <CardMedia
-          sx={{ width: 151, height: "auto" }}
-          component="img"
-          image="/assets/BeetRoot.jpeg"
-          alt="food img"
-        />
-      </Card>
-      <Card
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          marginBottom: 2,
-          height: "auto",
-        }}
-      >
-        <CardContent>
-          <Typography component="h2" sx={{ fontWeight: "bold" }}>
-            Politiki
-          </Typography>
-          <Typography component="p">
-            Ingredients: <br></br>
-            White cabbage with carrots, red bell pepper, celery, parsley and
-            lemon juice.
-          </Typography>
-          <CardActions>
-            <Button variant="outlined" endIcon={<AddIcon />}>
-              15$
-            </Button>
-          </CardActions>
-        </CardContent>
-        <CardMedia
-          sx={{ width: 151, height: "auto" }}
-          component="img"
-          image="/assets/PolitikiSalad.jpg"
-          alt="food img"
-        />
-      </Card>
-      <Card
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          marginBottom: 2,
-          height: "auto",
-        }}
-      >
-        <CardContent>
-          <Typography component="h2" sx={{ fontWeight: "bold" }}>
-            Lettuce and arugula
-          </Typography>
-          <Typography component="p">
-            Ingredients: <br></br>
-            Lettuce, arugula, tomatoes, parmesan cheese. Served with olive oil
-            and balsamic vinegar.
-          </Typography>
-          <CardActions>
-            <Button variant="outlined" endIcon={<AddIcon />}>
-              15$
-            </Button>
-          </CardActions>
-        </CardContent>
-        <CardMedia
-          sx={{ width: 151, height: "auto" }}
-          component="img"
-          image="/assets/Lettuce.jpg"
+          image={salad.image}
           alt="food img"
         />
       </Card>
