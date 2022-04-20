@@ -1,6 +1,6 @@
 import React from "react";
 import { DishCard } from "../components/DishCard";
-
+import { v4 as uuid } from "uuid";
 export const MainDish = ({ addItemToCart }) => {
   const mainDish = [
     {
@@ -35,8 +35,8 @@ export const MainDish = ({ addItemToCart }) => {
 
   return (
     <>
-      {mainDish.map((item) => (
-        <DishCard addItemToCart={addItemToCart} mainDish={item} />
+      {mainDish.map((item,index) => (
+        <DishCard key={index}addItemToCart={addItemToCart} mainDish={item} />
       ))}
     </>
   );

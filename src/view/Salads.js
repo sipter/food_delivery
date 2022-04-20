@@ -1,6 +1,6 @@
 import React from "react";
 import { SaladsCard } from "../components/SaladsCard";
-
+import { v4 as uuid } from "uuid";
 export const Salads = ({ addItemToCart }) => {
   const salads = [
     {
@@ -31,6 +31,6 @@ export const Salads = ({ addItemToCart }) => {
   ]
 
   return (<>
-    {salads.map(item => <SaladsCard addItemToCart={addItemToCart} salad={item} />)}
+    {salads.map((item,index) => <SaladsCard key={index} addItemToCart={addItemToCart} salad={item} />)}
   </>);
 };

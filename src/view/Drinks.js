@@ -1,5 +1,6 @@
 import React from "react";
 import { DrinksCard } from "../components/DrinksCard";
+import { v4 as uuid } from "uuid";
 export const Drinks = ({ addItemToCart }) => {
   const drinks = [
     {
@@ -23,7 +24,7 @@ export const Drinks = ({ addItemToCart }) => {
   return (
     <>
       {drinks.map((item,index) => (
-        <DrinksCard addItemToCart={addItemToCart} drink={item} key={index}/>
+        <DrinksCard key={index} addItemToCart={addItemToCart} drink={item}/>
       ))}
     </>
   );

@@ -11,10 +11,10 @@ import { Badge, Container, Menu, MenuItem } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ShoppingCart from "./ShoppingCart";
 
-export default function NanBar({ toggleCart }) {
+export default function NanBar({ toggleCart, length }) {
   let navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const pages = ["home","starter", "salads", "main-dish", "dessert", "drinks"];
+  const pages = ["starter", "salads", "main-dish", "dessert", "drinks"];
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -29,7 +29,7 @@ export default function NanBar({ toggleCart }) {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, marginBottom: "16px" }}>
       <AppBar position="static">
         <Container maxWidth="lg">
           <Toolbar>
@@ -62,6 +62,9 @@ export default function NanBar({ toggleCart }) {
                   display: { xs: "block", md: "none" },
                 }}
               >
+                <MenuItem onClick={() => handleMenuItemPress("")}>
+                  <Typography textAlign="center">home</Typography>
+                </MenuItem>
                 {pages.map((item, index) => (
                   <MenuItem
                     onClick={() => handleMenuItemPress(item)}
@@ -78,6 +81,9 @@ export default function NanBar({ toggleCart }) {
                 justifyContent: "space-between",
               }}
             >
+              <Button color="inherit" onClick={() => handleMenuItemPress("")}>
+                home
+              </Button>
               {pages.map((item, index) => (
                 <Button
                   color="inherit"
@@ -87,7 +93,7 @@ export default function NanBar({ toggleCart }) {
                   {item}
                 </Button>
               ))}
-              <Badge color="primary">
+              <Badge color="warning" badgeContent={length}>
                 <IconButton
                   size="large"
                   aria-label="show more"

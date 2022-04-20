@@ -2,7 +2,7 @@
 import "../src/style/App.css";
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Header } from "./components/Header";
+import { Home } from "./view/Home";
 import { MainDish } from "./view/MainDish";
 import { Dessert } from "./view/Dessert";
 import { Starter } from "./view/Starter";
@@ -11,21 +11,37 @@ import { Drinks } from "./view/Drinks";
 import { Container, CssBaseline } from "@mui/material";
 import NavBar from "../src/components/NavBar";
 import ShoppingCart from "./components/ShoppingCart";
-import { v4 as uuid } from "uuid";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = React.useState(false);
   const [products, setProducts] = React.useState([]);
-console.log(products)
   const toggleCart = () => setIsCartOpen(!isCartOpen);
-  const addItemToCart = (item) => setProducts([...products, item]);
+  // const addItemToCart = (item) => setProducts([...products, item]);
+  const addItemToCart = (item) => {
+    localStorage.setItem("products", JSON.stringify([...products, item]));
+    setProducts([...products, item]);
+  };
 
+  React.useEffect(() => {
+    const products = JSON.parse(localStorage.getItem("products"));
+    if (products) {
+      setProducts(products);
+    }
+  }, []);
+
+  const emptyCart = () => {
+    setProducts([]);
+    localStorage.clear();
+  };
+
+  const length = products.length;
+  console.log(products.length, "my length");
   return (
     <>
       <CssBaseline />
 
       <Router>
-        <NavBar toggleCart={toggleCart} />
+        <NavBar toggleCart={toggleCart} length={length} />
         {/* <div> */}
         {/* <header>
           <Header/> 
@@ -39,21 +55,42 @@ console.log(products)
           isCartOpen={isCartOpen}
           toggleCart={toggleCart}
           products={products}
+          reset={emptyCart}
         />
         <Container maxWidth="lg">
           <Routes>
+          <Route
+              path="/"
+              exact
+              element={<Home/>}
+            />
             <Route
               path="/starter"
               exact
               element={<Starter addItemToCart={addItemToCart} />}
             />
-            <Route path="/salads" exact element={<Salads addItemToCart={addItemToCart}/>} />
-            <Route path="/main-dish" exact element={<MainDish addItemToCart={addItemToCart}/>} />
-            <Route path="/dessert" exact element={<Dessert addItemToCart={addItemToCart}/>} />
-            <Route path="/drinks" exact element={<Drinks addItemToCart={addItemToCart}/>} />
+            <Route
+              path="/salads"
+              exact
+              element={<Salads addItemToCart={addItemToCart} />}
+            />
+            <Route
+              path="/main-dish"
+              exact
+              element={<MainDish addItemToCart={addItemToCart} />}
+            />
+            <Route
+              path="/dessert"
+              exact
+              element={<Dessert addItemToCart={addItemToCart} />}
+            />
+            <Route
+              path="/drinks"
+              exact
+              element={<Drinks addItemToCart={addItemToCart} />}
+            />
           </Routes>
         </Container>
-        {/* </div> */}
       </Router>
     </>
   );
