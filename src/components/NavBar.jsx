@@ -29,7 +29,7 @@ export default function NanBar({ toggleCart, length }) {
   };
 
   return (
-    <Box sx={{ flexGrow: 1, marginBottom: "16px" }}>
+    <Box sx={{ flexGrow: 1, marginBottom: "10px" }}>
       <AppBar position="static">
         <Container maxWidth="lg">
           <Toolbar>
