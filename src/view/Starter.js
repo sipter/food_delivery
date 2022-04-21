@@ -39,8 +39,8 @@ export const Starter = ({ addItemToCart }) => {
 
   return (
     <>
-      {starters.map((item) => (
-        <StarterCard addItemToCart={addItemToCart} starter={item} key={item.id}/>
+      {starters.map((item,index) => (
+        <StarterCard addItemToCart={addItemToCart} starter={item} key={index}/>
       
       ))}
     </>

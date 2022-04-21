@@ -3,13 +3,14 @@ import {
   Card,
   CardActions,
   CardContent,
-  CardMedia,
   Typography,
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import * as React from "react";
 
 export const DrinksCard = ({ addItemToCart, drink }) => {
+  
+
   return (
     <>
       <Card
@@ -27,6 +28,7 @@ export const DrinksCard = ({ addItemToCart, drink }) => {
           </Typography>
           <CardActions>
             <Button
+            color="primary"
               variant="outlined"
               endIcon={<AddIcon />}
               onClick={() => addItemToCart(drink)}

@@ -11,12 +11,15 @@ import {
   ButtonGroup,
 } from "@mui/material";
 import _ from "lodash";
+import { v4 as uuid } from "uuid";
 
 export default function ShoppingCart({
   isCartOpen,
   toggleCart,
   products,
   reset,
+  addItemToCart,
+  removeItemFromCart,
 }) {
   const finalPrice = products.reduce((acc, product) => acc + product.price, 0);
   const groupedProducts = _.groupBy(products, (item) => item.name); // products.map((item)=>{item.name}) //{"banana":[{}], "tomato":["tomato"]}
@@ -27,19 +30,14 @@ export default function ShoppingCart({
     width: "5rem",
     height: "5rem",
   };
+
+  // add plus one for the item
+  //const groupedId = _.groupBy(products, (item) => item.id);
   return (
     <Drawer anchor={"right"} open={isCartOpen} onClose={toggleCart}>
-      <Box sx={{ ...commonStyles, borderBottom: 1, width: 400 }}>
+      <Box sx={{ ...commonStyles, borderBottom: 1, width: 300 }}>
         {Object.keys(groupedProducts).map((group, index) => {
           let count = groupedProducts[group].length;
-          // const addOne = () => {
-          //   return count = count + 1
-          // }
-          // const [count, setCount] = React.setCount(groupedProducts[group].length)
-
-          const addOne = (event) => {
-            console.log(event.target);
-          };
 
           return (
             <Card
@@ -51,18 +49,39 @@ export default function ShoppingCart({
               key={index}
             >
               <CardContent>
-                <Typography component="p">
-                  {`${count}x`} {group} &nbsp;
-                  {groupedProducts[group].reduce(
-                    (acc, item) => acc + item.price,
-                    0
-                  )}
+                <Typography component="div" sx={{ display: "flex" }}>
+                  <Box sx={{ display: "flex", flexGrow: 1 }}>
+                    {`${count}x`} {group} &nbsp;
+                  </Box>
+
+                  <Box sx={{ display: "flex" }}>
+                    $
+                    {groupedProducts[group].reduce(
+                      (acc, item) => acc + item.price,
+                      0
+                    )}
+                  </Box>
                 </Typography>
 
                 <CardActions>
                   <ButtonGroup disableElevation variant="contained">
-                    <Button>-</Button>
-                    <Button onClick={addOne}>+</Button>
+                    <Button
+                      onClick={() =>
+                        removeItemFromCart(groupedProducts[group][0])
+                      }
+                    >
+                      -
+                    </Button>
+                    <Button
+                      onClick={() =>
+                        addItemToCart({
+                          ...groupedProducts[group][0],
+                          id: uuid(),
+                        })
+                      }
+                    >
+                      +
+                    </Button>
                   </ButtonGroup>
                 </CardActions>
               </CardContent>
@@ -85,12 +104,13 @@ export default function ShoppingCart({
           }}
         >
           <CardContent>
-            <Typography component="p">
-              Total: <br></br> {finalPrice}
+            <Typography component="div" sx={{ display: "flex" }}>
+              <Box sx={{ display: "flex", flexGrow: 1 }}>Total:</Box>
+              <Box sx={{ display: "flex" }}>{finalPrice}</Box>
             </Typography>
             <CardActions>
-              <Button onClick={reset}>Clear</Button>
-              <Button>Order now!</Button>
+              <Button onClick={reset}  variant="contained">Clear</Button>
+              <Button  variant="contained">Order now!</Button>
             </CardActions>
           </CardContent>
         </Card>

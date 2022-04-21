@@ -1,21 +1,21 @@
 import React from "react";
 import { DrinksCard } from "../components/DrinksCard";
-import { v4 as uuid } from "uuid";
+import { v4 } from "uuid";
 export const Drinks = ({ addItemToCart }) => {
   const drinks = [
-    {
+    { id: v4(),
       name: "Water 1l",
       price: 5,
     },
-    {
+    { id: v4(),
       name: "Wine 750ml",
-      price: 15,
+      price:  15,
     },
-    {
+    { id: v4(),
       name: "Ouzo 500ml",
       price: 7,
     },
-    {
+    { id: v4(),
       name: "Coffee",
       price: 3,
     },
@@ -23,7 +23,7 @@ export const Drinks = ({ addItemToCart }) => {
 
   return (
     <>
-      {drinks.map((item,index) => (
+      {drinks.map((item,index) => (       
         <DrinksCard key={index} addItemToCart={addItemToCart} drink={item}/>
       ))}
     </>

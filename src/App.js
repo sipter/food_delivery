@@ -8,9 +8,21 @@ import { Dessert } from "./view/Dessert";
 import { Starter } from "./view/Starter";
 import { Salads } from "./view/Salads";
 import { Drinks } from "./view/Drinks";
-import { Container, CssBaseline } from "@mui/material";
+import { Container, createTheme, CssBaseline } from "@mui/material";
 import NavBar from "../src/components/NavBar";
 import ShoppingCart from "./components/ShoppingCart";
+import { ThemeProvider } from "@emotion/react";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#4d8993",
+    },
+    secondary: {
+      main: "#d9cebf",
+    },
+  },
+});
 
 function App() {
   const [isCartOpen, setIsCartOpen] = React.useState(false);
@@ -20,6 +32,13 @@ function App() {
   const addItemToCart = (item) => {
     localStorage.setItem("products", JSON.stringify([...products, item]));
     setProducts([...products, item]);
+  };
+  const removeItemFromCart = (item) => {
+    localStorage.setItem(
+      "products",
+      JSON.stringify(products.filter((x) => x.id !== item.id))
+    );
+    setProducts(products.filter((x) => x.id !== item.id));
   };
 
   React.useEffect(() => {
@@ -39,59 +58,58 @@ function App() {
   return (
     <>
       <CssBaseline />
-
-      <Router>
-        <NavBar toggleCart={toggleCart} length={length} />
-        {/* <div> */}
-        {/* <header>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <NavBar toggleCart={toggleCart} length={length} />
+          {/* <div> */}
+          {/* <header>
           <Header/> 
         </header> */}
 
-        {/* <Route path="/" exact component={Header} /> */}
+          {/* <Route path="/" exact component={Header} /> */}
 
-        {/* A <Switch> looks through its children <Route>s and
+          {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <ShoppingCart
-          isCartOpen={isCartOpen}
-          toggleCart={toggleCart}
-          products={products}
-          reset={emptyCart}
-        />
-        <Container maxWidth="lg">
-          <Routes>
-          <Route
-              path="/"
-              exact
-              element={<Home/>}
-            />
-            <Route
-              path="/starter"
-              exact
-              element={<Starter addItemToCart={addItemToCart} />}
-            />
-            <Route
-              path="/salads"
-              exact
-              element={<Salads addItemToCart={addItemToCart} />}
-            />
-            <Route
-              path="/main-dish"
-              exact
-              element={<MainDish addItemToCart={addItemToCart} />}
-            />
-            <Route
-              path="/dessert"
-              exact
-              element={<Dessert addItemToCart={addItemToCart} />}
-            />
-            <Route
-              path="/drinks"
-              exact
-              element={<Drinks addItemToCart={addItemToCart} />}
-            />
-          </Routes>
-        </Container>
-      </Router>
+          <ShoppingCart
+            isCartOpen={isCartOpen}
+            toggleCart={toggleCart}
+            products={products}
+            reset={emptyCart}
+            addItemToCart={addItemToCart}
+            removeItemFromCart={removeItemFromCart}
+          />
+          <Container maxWidth="lg">
+            <Routes>
+              <Route path="/" exact element={<Home />} />
+              <Route
+                path="/starter"
+                exact
+                element={<Starter addItemToCart={addItemToCart} />}
+              />
+              <Route
+                path="/salads"
+                exact
+                element={<Salads addItemToCart={addItemToCart} />}
+              />
+              <Route
+                path="/main-dish"
+                exact
+                element={<MainDish addItemToCart={addItemToCart} />}
+              />
+              <Route
+                path="/dessert"
+                exact
+                element={<Dessert addItemToCart={addItemToCart} />}
+              />
+              <Route
+                path="/drinks"
+                exact
+                element={<Drinks addItemToCart={addItemToCart} />}
+              />
+            </Routes>
+          </Container>
+        </Router>
+      </ThemeProvider>
     </>
   );
 }

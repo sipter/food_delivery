@@ -10,11 +10,22 @@ import { useNavigate } from "react-router-dom";
 import { Badge, Container, Menu, MenuItem } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ShoppingCart from "./ShoppingCart";
+import { styled } from '@mui/material/styles';
+
+
+const StyledBadge = styled(Badge)(({ theme }) => ({
+  '& .MuiBadge-badge': {
+    right: -3,
+    top: 18,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: '0 4px',
+  },
+}));
 
 export default function NanBar({ toggleCart, length }) {
   let navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const pages = ["starter", "salads", "main-dish", "dessert", "drinks"];
+  const pages = ["STARTER", "SALADS", "MAIN-DISH", "DESSERT", "DRINKS"];
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -33,7 +44,7 @@ export default function NanBar({ toggleCart, length }) {
       <AppBar position="static">
         <Container maxWidth="lg">
           <Toolbar>
-            <Box sx={{ display: { xs: "flex", md: "none" } }}>
+            <Box sx={{ display: { xs: "flex", md: "none" }}}>
               <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -82,7 +93,7 @@ export default function NanBar({ toggleCart, length }) {
               }}
             >
               <Button color="inherit" onClick={() => handleMenuItemPress("")}>
-                home
+                HOME
               </Button>
               {pages.map((item, index) => (
                 <Button
@@ -93,20 +104,20 @@ export default function NanBar({ toggleCart, length }) {
                   {item}
                 </Button>
               ))}
-              <Badge color="warning" badgeContent={length}>
-                <IconButton
-                  size="large"
-                  aria-label="show more"
-                  aria-controls={"mobileMenuId"}
-                  aria-haspopup="true"
-                  color="inherit"
-                  edge="end"
-                  onClick={toggleCart}
-                >
-                  <ShoppingCartIcon color="inherit" />
-                </IconButton>
-              </Badge>
             </Box>
+            <StyledBadge color="secondary" badgeContent={length}>
+              <IconButton
+                size="large"
+                aria-label="show more"
+                aria-controls={"mobileMenuId"}
+                aria-haspopup="true"
+                color="inherit"
+                edge="end"
+                onClick={toggleCart}
+              >
+                <ShoppingCartIcon color="inherit" />
+              </IconButton>
+            </StyledBadge>
           </Toolbar>
         </Container>
       </AppBar>

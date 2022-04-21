@@ -36,7 +36,7 @@ export const MainDish = ({ addItemToCart }) => {
   return (
     <>
       {mainDish.map((item,index) => (
-        <DishCard key={index}addItemToCart={addItemToCart} mainDish={item} />
+        <DishCard key={index} addItemToCart={addItemToCart} mainDish={item} />
       ))}
     </>
   );
