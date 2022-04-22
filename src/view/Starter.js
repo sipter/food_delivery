@@ -1,6 +1,10 @@
 import React from "react";
 import { StarterCard } from "../components/StarterCard";
 import { v4 } from "uuid";
+import starterImage1 from "../assets/FetaOlives.jpg"
+import starterImage2 from "../assets/Tzatziki.jpeg"
+import starterImage3 from "../assets/Oyster.jpg"
+import starterImage4 from "../assets/Saganaki.jpg"
 export const Starter = ({ addItemToCart }) => {  
 
   const starters = [
@@ -10,7 +14,7 @@ export const Starter = ({ addItemToCart }) => {
       ingredients:
         "Feta cheese with olives. Served with olive oil and oregano.",
       price: 7,
-      image: "/assets/FetaOlives.jpg",
+      image: starterImage1,
     },
     {
       id: v4(),
@@ -18,7 +22,7 @@ export const Starter = ({ addItemToCart }) => {
       ingredients:
         "Yoghurt with cucumber, dill, garlic, olive oil and vinegar. Served with pita bread.",
       price: 6,
-      image: "/assets/Tzatziki.jpg",
+      image: starterImage2,
     },
     {
       id: v4(),
@@ -26,14 +30,14 @@ export const Starter = ({ addItemToCart }) => {
       ingredients:
         "Grilled oyster mushrooms served with olive oil, lemon juice, parsley and oregano.",
       price: 9,
-      image: "/assets/Oyster.jpg",
+      image: starterImage3,
     },
     {
       id: v4(),
       name: "Saganaki",
       ingredients: "Fried graviera cheese served with fresh lemon juice.",
       price: 7,
-      image: "/assets/Saganaki.jpg",
+      image: starterImage4,
     },
   ];
 
