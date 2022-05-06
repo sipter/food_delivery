@@ -34,7 +34,7 @@ export const SaladsCard = ({ addItemToCart, salad }) => {
               endIcon={<AddIcon />}
               onClick={() => addItemToCart(salad)}
             >
-              {salad.price}
+              ${salad.price}
             </Button>
           </CardActions>
         </CardContent>

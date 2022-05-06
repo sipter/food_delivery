@@ -2,7 +2,7 @@ import React from "react";
 import { StarterCard } from "../components/StarterCard";
 import { v4 } from "uuid";
 import starterImage1 from "../assets/FetaOlives.jpg"
-import starterImage2 from "../assets/Tzatziki.jpeg"
+import starterImage2 from "../assets/Tzatziki.jpg"
 import starterImage3 from "../assets/Oyster.jpg"
 import starterImage4 from "../assets/Saganaki.jpg"
 export const Starter = ({ addItemToCart }) => {  
